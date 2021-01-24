@@ -1,2 +1,2 @@
 # Competitive-Programming
-Answers of Competitive programming
+Answers of Competitive programming questions
