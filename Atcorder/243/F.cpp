@@ -39,7 +39,28 @@ int pairs(int k, vector<int> arr) {
 }
 
 int main(){
+    vector<bool> s = {true, true, false, false};
+    sort(s.begin(), s.end());
+    int hist[20] = {0};
+    int cnt = 0;
+    do{
+        int tmp = 0;
+        int prev = -1;
+        for(bool b : s){
+            int cur = b;
+            if(cur != prev) tmp++;
+            prev = cur;
+            cout << b << " ,";
+        }
+        cout << endl;
+        cnt++;
+        hist[tmp]++;
+    }while(next_permutation(s.begin(), s.end() ) );
 
-    cout << atomic<>.is_lock_free() << endl;
-    
+    double exp = 0;
+    for(int i=0; i<20; ++i){
+        exp += (double)i*((double)hist[i] /(double)cnt) ;
+    }
+    cout << exp << endl;
+
 }

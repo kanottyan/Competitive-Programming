@@ -1,59 +1,29 @@
 #include <bits/stdc++.h>
-#include <atcoder/all>
-
 using namespace std;
-using namespace atcoder;
 
-
-class Customer{
-    private:
-        map<int, int> m;
-
-    public:
-    void add(int a, int b){
-        m[a] = b;
-    }
-
-    map<int,int>* get(){
-        return &m;
-    }
-
-    void update(int i, int val){
-        m[i] = val;
-    }
-};
-
-int main(){
-
-    // Customer c;
-    // c.add(1,2);
-    // c.add(3,3);
-    // c.add(4,5);
-
-    // map<int, int>* res = c.get();
-    // c.update(5, 100);
-
-    // res->insert(make_pair(11, 111));
-    // res->insert(make_pair(13, 111));
-
-    int cnt = 0;
-    int N=7;
-    for(int bit=0; bit<(1<<N); ++bit){
-        int c = 0;
-        for(int i=0; i<N; ++i){
-            if(bit & (1<<i)){
-                c++;
-            }else{
-                c = 0;
-            }
-            if(c == 3){
-                cnt++;
-                break;
-            }
-        }
-    }
-
-    cout << cnt << endl;
-
-    return false;
+int main() {
+	int n, x, ans;
+	string s;
+	vector<pair<int, char> >a;
+	cin >> n;
+	cin >> s;
+	ans = 0;
+	for (int i = 0; i < n; i++) {
+		cin >> x;
+		a.push_back({ x,s[i] });
+		if (s[i] == '1')ans++;
+	}
+	sort(a.begin(), a.end());
+	x = ans;
+	for (int i = 0; i < n; i++) {
+		if (a[i].second == '1')x--;
+		else x++;
+		// if (i < (n - 1)) {
+		// 	if (a[i].first != a[i + 1].first)ans = max(ans, x);
+		// }
+		// else 
+        ans = max(ans, x);
+	}
+	cout << ans << endl;
+	return 0;
 }
